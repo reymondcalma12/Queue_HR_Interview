@@ -1,0 +1,270 @@
+﻿@model Applicant_Form
+@{
+    ViewData["Title"] = "Application Form";
+    Layout = "_FormLayout";
+}
+
+<style>
+    label {
+        font-weight: 700;
+    }
+
+    .flex {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .box {
+        width: 30px;
+        height: 30px;
+        border: 1px solid #878b90;
+        border-radius: 3px;
+    }
+
+
+
+    .underline {
+        width: 100%;
+        border-bottom: 1px solid black;
+    }
+
+    .row h4 {
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #D9D9D9;
+    }
+
+    @@media (max-width: 810px) {
+        .row h3 {
+            font-size: 18px;
+        }
+
+        .row h4, h5 {
+            font-size: 14px;
+        }
+    }
+
+</style>
+
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light mb-3 p-2">
+        <div class="container-fluid">
+            <div class="d-flex gap-2 align-items-center">
+                <a class="navbar-brand">
+                    <img src="~/src/logo-prince.png" style="width: 80px;height: 80px;object-fit: contain;" alt="Queue_Interview" />
+                </a>
+                <h2 class="fw-bold text-decoration-underline"> REGISTRATION FORM </h2>
+            </div>
+
+            <div class="d-flex flex-column">
+                <div class="text-end">
+                    <div class="bg-white">
+                        <h5>@Model.Created_At.ToString("MMM d, yyyy hh:mm:ss tt").ToUpper()</h5>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    <div>
+                        <h5>Applicant</h5>
+                        <h5>Control#:</h5>
+                    </div>
+                    <div class="bg-white p-3 border rounded">
+                        <h1 style="font-size: 48px;">A - @Model.ApplicantId</h1>
+                    </div>
+                </div>
+              
+            </div>
+
+
+        </div>
+    </nav>
+</header>
+<div class="container-fluid">
+    <div class="row p-2">
+        <div class="col-6 mb-3">
+            <label asp-for="Name" class="form-label"></label>
+            <input asp-for="Name" class="form-control" disabled>
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="col-6 mb-3">
+            <label asp-for="Position" class="form-label"></label>
+            <input asp-for="Position" class="form-control" disabled>
+            <span asp-validation-for="Position" class="text-danger"></span>
+        </div>
+        <div class="col-12 mb-3">
+            <label asp-for="Address" class="form-label"></label>
+            <input asp-for="Address" class="form-control" disabled>
+            <span asp-validation-for="Address" class="text-danger"></span>
+        </div>
+        <div class="col-6 mb-3">
+            <label asp-for="ContactNumber" class="form-label"> Contact Number </label>
+            <input asp-for="ContactNumber" class="form-control" disabled>
+            <span asp-validation-for="ContactNumber" class="text-danger"></span>
+        </div>
+        <div class="col-6 mb-3">
+            <label asp-for="Email" class="form-label"></label>
+            <input asp-for="Email" class="form-control" disabled>
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+    </div>
+    
+    <div class="container-fluid mt-4">
+        <!-- Pre-Screening -->
+        <div class="Pre-screening mb-3">
+            <div class="row">
+                <div class="col-6 flex">
+                    <img src="~/src/Step1.png" />
+                    <h3>Pre-Screening:</h3>
+                </div>
+                <div class="col-3 flex">
+                    <div class="box"></div>
+                    <h4 class="m-0">Passed</h4>
+                </div>
+                <div class="col-3 flex">
+                    <div class="box"></div>
+                    <h4 class="m-0">For Pooling</h4>
+                </div>
+            </div>
+
+            <div class="row mt-2">
+                <div class="col-6 d-flex">
+                    <h5>Signature:</h5>
+                    <div class="underline"></div>
+                </div>
+                <div class="col-6 d-flex">
+                    <h5>Remarks:</h5>
+                    <div class="underline"></div>
+                </div>
+            </div>
+
+        </div>
+        <!-- Initial Interview -->
+        <div class="Initial mb-3">
+            <div class="row">
+                <div class="col-6 flex">
+                    <img src="~/src/Step2.png" />
+                    <h3>Initial Interview:</h3>
+                </div>
+                <div class="col-3 flex">
+                    <div class="box"></div>
+                    <h4 class="m-0">Passed</h4>
+                </div>
+                <div class="col-3 flex">
+                    <div class="box"></div>
+                    <h4 class="m-0">For Pooling</h4>
+                </div>
+            </div>
+
+            <div class="row mt-2">
+                <div class="col-6 d-flex">
+                    <h5>Interviewer:</h5>
+                    <div class="underline"></div>
+                </div>
+                <div class="col-6 d-flex">
+                    <h5>Remarks:</h5>
+                    <div class="underline"></div>
+                </div>
+            </div>
+
+            <div class="row mt-2">
+                <div class="col-6 d-flex">
+                    <h5 class="px-2">Signature:</h5>
+                    <div class="underline"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Optional -->
+        <div class="Optional mb-3">
+            <strong>OPTIONAL:</strong>
+            <div class="row">
+                <div class="col-6">
+                    <h3>Test Assessment:</h3>
+                </div>
+                <div class="col-3 flex">
+                    <div class="box"></div>
+                    <h4 class="m-0">Passed</h4>
+                </div>
+                <div class="col-3 flex">
+                    <div class="box"></div>
+                    <h4 class="m-0">Failed</h4>
+                </div>
+            </div>
+
+            <div class="row mt-2">
+                <div class="col-6 d-flex">
+                    <h5>Interviewer:</h5>
+                    <div class="underline"></div>
+                </div>
+                <div class="col-6 d-flex">
+                    <h5>Remarks:</h5>
+                    <div class="underline"></div>
+                </div>
+            </div>
+
+            <div class="row mt-2">
+                <div class="col-6 d-flex">
+                    <h5 class="px-2">Signature:</h5>
+                    <div class="underline"></div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Final Interview -->
+        <div class="Final mb-3">
+            <div class="row">
+                <div class="col-6 flex">
+                    <img src="~/src/Step3.png" />
+                    <h3>Final Interview:</h3>
+                </div>
+                <div class="col-3 flex">
+                    <div class="box"></div>
+                    <h4 class="m-0">Passed</h4>
+                </div>
+                <div class="col-3 flex">
+                    <div class="box"></div>
+                    <h4 class="m-0">For Pooling</h4>
+                </div>
+            </div>
+
+            <div class="row mt-2">
+                <div class="col-6 d-flex">
+                    <h5>Interviewer:</h5>
+                    <div class="underline"></div>
+                </div>
+                <div class="col-6 d-flex">
+                    <h5>Remarks:</h5>
+                    <div class="underline"></div>
+                </div>
+            </div>
+
+            <div class="row mt-2">
+                <div class="col-6 d-flex">
+                    <h5 class="px-2">Signature:</h5>
+                    <div class="underline"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+<script>
+
+    $(document).ready(function () {
+        PrintApplicationForm();
+    });
+
+    function PrintApplicationForm() {
+        window.onafterprint = function () {
+            window.location.href = "/Home/Index";
+        };
+
+        window.print();
+    }
+
+</script>

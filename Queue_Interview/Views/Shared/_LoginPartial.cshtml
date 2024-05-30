@@ -1,0 +1,28 @@
+﻿@using Microsoft.AspNetCore.Mvc.Rendering
+@{
+    var session = ViewContext.HttpContext?.Session;
+}
+
+<style>
+    .nav-item.lg:hover {
+        background-color: #dee2e6;
+        border-color: #dee2e6;
+        border-radius: 3px;
+    }
+</style>
+
+<ul class="navbar-nav">
+    @if (session?.GetString("User") != null)
+    {
+        <li class="nav-item px-3 lg">
+            <a class="nav-link text-dark fw-bold" asp-controller="Account" asp-action="Logout">Logout</a>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link text-light" asp-controller="Account" asp-action="Role">Login</a>
+        </li>
+    }
+
+</ul>

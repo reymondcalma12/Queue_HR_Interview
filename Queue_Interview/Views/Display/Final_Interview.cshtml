@@ -1,0 +1,114 @@
+﻿﻿@using Queue.Models.ViewModel
+@model ServingVM
+
+@{
+    ViewData["Title"] = "Final Interview";
+    Layout = "_DisplayLayout";
+}
+
+<style>
+    .card {
+        border-radius: 10px;
+    }
+
+    .number2 {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+
+
+    @@media (min-width: 2000px) {
+        .container {
+            padding-top: 2rem;
+            max-width: 1700px;
+        }
+
+        .title {
+            font-size: 40px;
+        }
+
+        .nw {
+            font-size: 40px !important;
+        }
+
+        .number2 h1 {
+            font-size: 100px !important;
+        }
+    }
+
+    @@media (max-width: 1200px) {
+        .number2 h1 {
+            font-size: 72px !important;
+        }
+    }
+
+</style>
+
+<div class="d-flex align-items-center justify-content-between">
+    <h1 style="font-size: 60px;">STAGE 3: <span class="text-decoration-underline fst-italic">Final Interview</span></h1>
+
+    <div class="time text-center rounded">
+        <h1 class="m-0" style="font-size: 56px;" id="time"></h1>
+        <h3 id="date"></h3>
+    </div>
+</div>
+
+
+<h1 class="text-center nw fst-italic mt-5" style="font-size: 60px;">Now Serving</h1>
+<div class="container mb-5">
+
+    <div class="row py-3 g-4 gy-5 justify-content-center">
+
+        @if (Model.Tables != null && Model.Servings != null)
+        {
+            @foreach (var table in Model.Tables)
+            {
+                var servingQueue = Model.Servings.Where(s => s.TableId == table.TableId);
+
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="number1">
+                                <h3>@table.Username</h3>
+                            </div>
+                            <div class="number2">
+                                @if (servingQueue.Any())
+                                {
+                                    <h1 id="table-@table.TableId" class="text-center fw-bold" style="font-size: 92px;">
+                                        @foreach (var serving in servingQueue)
+                                        {
+                                            <text>A - @serving.ApplicantId</text>
+                                        }
+                                    </h1>
+                                }
+                                else
+                                {
+                                    <h1 id="table-@table.TableId" class="text-center fw-bold" style="font-size: 92px;">----</h1>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>
+    const displayDateTime = () => {
+        var currentTime = new Date();
+        var options = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true };
+        var formattedTime = currentTime.toLocaleString('en-US', options);
+        var optionsDate = { year: 'numeric', month: 'long', day: 'numeric' };
+        var formattedDate = currentTime.toLocaleString('en-US', optionsDate);
+
+        $('#time').text(formattedTime);
+        $('#date').text(formattedDate);
+    };
+    // Initial display
+    displayDateTime();
+    setInterval(displayDateTime, 1000);
+
+</script>
+

@@ -1,0 +1,65 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    height: 100vh;
+}
+
+
+.blink-red {
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0% {
+        color: black;
+    }
+
+    50% {
+        color: red;
+    }
+
+    100% {
+        color: black;
+    }
+}
+
+.bg-green {
+    background-color: #2D6B44;
+    border: 1px solid #2D6B44;
+    color: #fff;
+}
+
+.bg-red {
+    background-color: #D82229;
+    border: 1px solid #D82229;
+    color: #fff;
+}
+
+.bg-yellow {
+    background-color: #F1E902;
+    border: 1px solid #F1E902;
+    color: #000;
+}
+
+.bg-view {
+    background-color: #00A1B1;
+    border: 1px solid #00A1B1;
+    color: #fff;
+}

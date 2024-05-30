@@ -1,0 +1,65 @@
+﻿@model Table
+@{
+    ViewData["Title"] = "Role Page";
+    Layout = "_Layout";
+}
+
+<div class="d-flex flex-column m-auto mt-5" style="max-width:600px;">
+    <div class="border rounded">
+        <h5 class="text-center pt-5">Select Role</h5>
+
+        <form method="post" asp-controller="Account" asp-action="Role">
+        @* <form method="post">  *@
+            <div class="row g-3 p-5">
+
+                <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+
+                <div class="col-12 mb-3">
+                    <label asp-for="StageId" class="form-label">Floor</label>
+                    <select asp-for="StageId" class="form-select">
+                        <option selected disabled>--select floor--</option>
+                    </select>
+                    <span asp-validation-for="StageId" class="text-danger"></span>
+                </div>
+
+                <div class="col-12 mb-3">
+                    <label asp-for="TableId" class="form-label">Table/Room</label>
+                    <select asp-for="TableId" class="form-select">
+                    </select>
+                    <span asp-validation-for="TableId" class="text-danger"></span>
+                </div>
+
+                <div class="col-12 pt-3">
+                    <button type="submit" class="btn btn-success w-100" id="">Login</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#TableId').attr('disabled', true);
+        LoadStages();
+
+        $('#StageId').change(function () {
+            var stageId = $(this).val();
+            if (stageId > 0) {
+                LoadTables(stageId);
+            } else {
+                alert("Select Stage");
+                $('#TableId').attr('disabled', true);
+                $('#TableId').html('<option>--select table--</option>');
+            }
+        });
+    })
+    
+</script>
