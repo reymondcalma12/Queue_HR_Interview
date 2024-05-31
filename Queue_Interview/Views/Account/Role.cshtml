@@ -1,16 +1,18 @@
 ﻿@model Table
 @{
     ViewData["Title"] = "Role Page";
-    Layout = "_Layout";
+    Layout = "_AccountLayout";
 }
 
-<div class="d-flex flex-column m-auto mt-5" style="max-width:600px;">
-    <div class="border rounded">
-        <h5 class="text-center pt-5">Select Role</h5>
-
+<div class="m-auto d-flex align-items-center justify-content-center h-100" style="max-width:600px;">
+    <div class="bg-white border rounded p-2">
+        <div class="img-fluid text-center">
+            <img src="/src/prg_logo.png" />
+        </div>
+        <h4 class="text-center fst-italic">Assign Table</h4>
         <form method="post" asp-controller="Account" asp-action="Role">
         @* <form method="post">  *@
-            <div class="row g-3 p-5">
+            <div class="row g-3 py-3 px-5">
 
                 <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
 

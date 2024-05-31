@@ -3,32 +3,16 @@
     ViewData["Title"] = "Home Page";
 }
 
-<style>
+@* <div class="img-fluid position-absolute" style="bottom: 5px; left: 5px;">
+    <img src="/src/Inhouse.jpg" width="300" class="rounded-3"/>
+</div> *@
 
-    @@media (max-width: 768px) {
-        .row {
-            flex-direction: column-reverse !important;
-        }
-
-            .row .bc {
-                margin-bottom: 20px;
-            }
-
-        form#form {
-            padding-left: 20px;
-            padding-right: 20px;
-        }
-    }
-    </style>
-
-<div class="row gx-0">
-    <div class="col-md-6 col-sm-12 p-0">
-        <div class="w-100 h-100">
-            <img src="/src/Inhouse.jpg" class="w-100 h-100"/>
+<div class="m-auto d-flex align-items-center justify-content-center h-100" style="max-width:650px;">
+    <div class="bg-white border rounded p-5 pt-3">
+        <div class="img-fluid text-center">
+            <img src="/src/prg_logo.png" />
         </div>
-    </div>
-    <div class="col-md-6 col-sm-12 px-5 py-3 bc">
-        <h4 class="text-center mb-4">APPLICATION FORM</h4>
+        <h4 class="text-center mb-4 fw-bold">APPLICATION FORM</h4>
         <form asp-controller="Home" asp-action="AddApplicant" method="post" id="form">
             <div class="row">
                 <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
@@ -61,74 +45,12 @@
             </div>
             <div class="w-100 mt-2">
                 <button type="submit" class="btn btn-success w-100" id="registerBtn">Register</button>
-            </div> 
-        </form>
+            </div>
+        </form> 
     </div>
 </div>
 
 
-
-@*     <div class="row h-100">
-        <div class="col-12">
-            <!-- Button trigger modal -->
-            <div class="d-flex align-items-center justify-content-center mt-5">
-                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#applicationForm">
-                    Application Form
-                </button>
-            </div>
-        </div>
-    </div> *@
-
-<!-- Modal -->
-<div class="modal fade" id="applicationForm" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog" style="max-width:600px;">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Application Form</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-
-            @* target="_blank" *@
-            <form asp-controller="Home" asp-action="AddApplicant" method="post" id="form">
-                <div class="modal-body row">
-
-                        <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
-                        <input asp-for="ApplicantId" hidden>
-                        <div class="col-md-6 mb-3">
-                            <label asp-for="Name" class="form-label"></label>
-                            <input asp-for="Name" class="form-control" placeholder="Enter Name">
-                            <span asp-validation-for="Name" class="text-danger"></span>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label asp-for="Position" class="form-label"></label>
-                            <input asp-for="Position" class="form-control" placeholder="Enter Position">
-                            <span asp-validation-for="Position" class="text-danger"></span>
-                        </div>
-                        <div class="col-md-12 mb-3">
-                            <label asp-for="Address" class="form-label"></label>
-                            <input asp-for="Address" class="form-control" placeholder="Enter Address">
-                            <span asp-validation-for="Address" class="text-danger"></span>
-                        </div>
-                        <div class="col-md-12 mb-3">
-                            <label asp-for="ContactNumber" class="form-label"> Contact Number </label>
-                            <input asp-for="ContactNumber" type="number" class="form-control" placeholder="Enter Contact Number">
-                            <span asp-validation-for="ContactNumber" class="text-danger"></span>
-                        </div>
-                        <div class="col-12 mb-3">
-                            <label asp-for="Email" class="form-label"></label>
-                            <input asp-for="Email" class="form-control" placeholder="Enter Email">
-                            <span asp-validation-for="Email" class="text-danger"></span>
-                        </div>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-success" id="registerBtn">Register</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
 
 @section Scripts {
     @{

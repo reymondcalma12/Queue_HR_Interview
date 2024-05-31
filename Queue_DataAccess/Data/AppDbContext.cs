@@ -54,11 +54,11 @@ namespace Queue.DataAccess
                 new Table { TableId = 16, Username = "Table 11", StageId = 2 },
                 new Table { TableId = 17, Username = "Table 12", StageId = 2 },
 
-                new Table { TableId = 18, Username = "Room - HUMILITY", StageId = 3 },
-                new Table { TableId = 19, Username = "Room - OPENNESS", StageId = 3 },
-                new Table { TableId = 20, Username = "Room - OWNER'S MINDSET", StageId = 3 },
-                new Table { TableId = 21, Username = "Room - TRANSPARENCY", StageId = 3 },
-                new Table { TableId = 22, Username = "Room - UNITY AND LUCIA", StageId = 3 }
+                new Table { TableId = 18, Username = "HUMILITY", StageId = 3 },
+                new Table { TableId = 19, Username = "OPENNESS", StageId = 3 },
+                new Table { TableId = 20, Username = "OWNER'S MINDSET", StageId = 3 },
+                new Table { TableId = 21, Username = "TRANSPARENCY", StageId = 3 },
+                new Table { TableId = 22, Username = "UNITY AND LUCIA", StageId = 3 }
                 );
 
             modelBuilder.Entity<Queue_Status>().HasData(

@@ -16,5 +16,9 @@ namespace Queue.Models
         public string? Stage_2 { get; set; }
         public string? Stage_3 { get; set; }
 
+        public string? Stage1_Table { get; set; }
+        public string? Stage2_Table { get; set; }
+        public string? Stage3_Table { get; set; }
+
     }
 }

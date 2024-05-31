@@ -6,29 +6,33 @@
     Layout = "_DisplayLayout";
 }
 
+
 <style>
     .card {
         border-radius: 10px;
     }
 
-    .number2 {
-        padding-top: 1.5rem;
-        padding-bottom: 1.5rem;
-    }
-
-
-    @@media (min-width: 2000px) {
+    @@media (max-width: 767px) {
         .container {
-            padding-top: 2rem;
-            max-width: 1700px;
+            padding-top: 1rem;
         }
 
         .title {
-            font-size: 40px;
+            font-size: 30px;
         }
 
-        .nw {
-            font-size: 40px !important;
+        .number2 h1 {
+            font-size: 90px !important;
+        }
+    }
+
+    @@media (min-width: 768px) and (max-width: 991px) {
+        .container {
+            padding-top: 1.5rem;
+        }
+
+        .title {
+            font-size: 35px;
         }
 
         .number2 h1 {
@@ -36,28 +40,43 @@
         }
     }
 
-    @@media (max-width: 1200px) {
+    @@media (min-width: 992px) {
+        .container-fluid {
+            padding-left: 5rem;
+            padding-right: 5rem;
+        }
+
+        .title {
+            font-size: 80px;
+        }
+
+        .number1 h2 {
+            font-size: 60px !important;
+            letter-spacing: 3px;
+        }
+
         .number2 h1 {
-            font-size: 72px !important;
+            font-size: 180px !important;
         }
     }
 
+    @@media (min-width: 992px) and (min-height: 1350px) {
+        .container-fluid {
+            padding-top: 6rem;
+        }
+    }
 </style>
 
-<div class="d-flex align-items-center justify-content-between">
-    <h1 style="font-size: 60px;">STAGE 3: <span class="text-decoration-underline fst-italic">Final Interview</span></h1>
-
-    <div class="time text-center rounded">
-        <h1 class="m-0" style="font-size: 56px;" id="time"></h1>
-        <h3 id="date"></h3>
-    </div>
+<div class="time text-center position-absolute" style="top: 5px; right: 5px;">
+    <h1 class="m-0" style="font-size: 70px;" id="time"></h1>
+    <h2 id="date"></h2>
 </div>
 
 
-<h1 class="text-center nw fst-italic mt-5" style="font-size: 60px;">Now Serving</h1>
-<div class="container mb-5">
+<div class="container-fluid my-5">
+    <h1 class="text-center nw fst-italic title">NOW SERVING</h1>
 
-    <div class="row py-3 g-4 gy-5 justify-content-center">
+    <div class="row py-3 g-5 justify-content-center">
 
         @if (Model.Tables != null && Model.Servings != null)
         {
@@ -65,16 +84,16 @@
             {
                 var servingQueue = Model.Servings.Where(s => s.TableId == table.TableId);
 
-                <div class="col-md-4">
+                <div class="col-md-4 col-sm-6 col-12">
                     <div class="card h-100">
                         <div class="card-body">
                             <div class="number1">
-                                <h3>@table.Username</h3>
+                                <h2 style="font-size: 46px;" class="text-uppercase">@table.Username</h2>
                             </div>
                             <div class="number2">
                                 @if (servingQueue.Any())
                                 {
-                                    <h1 id="table-@table.TableId" class="text-center fw-bold" style="font-size: 92px;">
+                                    <h1 id="table-@table.TableId" class="text-center fw-bold fst-italic">
                                         @foreach (var serving in servingQueue)
                                         {
                                             <text>A - @serving.ApplicantId</text>
@@ -83,7 +102,7 @@
                                 }
                                 else
                                 {
-                                    <h1 id="table-@table.TableId" class="text-center fw-bold" style="font-size: 92px;">----</h1>
+                                    <h1 id="table-@table.TableId" class="text-center fw-bold">----</h1>
                                 }
                             </div>
                         </div>
@@ -92,6 +111,12 @@
             }
         }
     </div>
+</div>
+
+<div class="bg-secondary p-3 text-white rounded-3 position-absolute" style="bottom: 45px; left: 5px;">
+    <h1 class="fst-italic" style="font-size: 70px; letter-spacing: 5px;">
+        FINAL INTERVIEW - 2nd Floor
+    </h1>
 </div>
 
 <script src="~/lib/jquery/dist/jquery.min.js"></script>

@@ -188,17 +188,20 @@ namespace Queue_Interview.Controllers
                         {
                             ApplicantId = servingData.ApplicantId,
                             Stage_1 = "Passed",
+                            Stage1_Table = currentUser?.Username
                         };
                         _unitOfWork.Applicant_Status.Add(applicant);
                     }
                     else if (servingData.StageId == 2)
                     {
                         applicantStatus.Stage_2 = "Passed";
+                        applicantStatus.Stage2_Table = currentUser?.Username;
                         _unitOfWork.Applicant_Status.Update(applicantStatus);
                     }
                     else if (servingData.StageId == 3)
                     {
                         applicantStatus.Stage_3 = "Passed";
+                        applicantStatus.Stage3_Table = currentUser?.Username;
                         _unitOfWork.Applicant_Status.Update(applicantStatus);
                     }
                     //Pass to Queue Stage
@@ -288,10 +291,12 @@ namespace Queue_Interview.Controllers
                         if (servingData.StageId == 2)
                         {
                             applicantStatus.Stage_2 = "Pooled";
+                            applicantStatus.Stage2_Table = currentUser?.Username;
                         }
                         else if (servingData.StageId == 3)
                         {
                             applicantStatus.Stage_3 = "Pooled";
+                            applicantStatus.Stage3_Table = currentUser?.Username;
                         }
                         _unitOfWork.Applicant_Status.Update(applicantStatus);
                     }
@@ -303,6 +308,7 @@ namespace Queue_Interview.Controllers
                             {
                                 ApplicantId = servingData.ApplicantId,
                                 Stage_1 = "Pooled",
+                                Stage1_Table = currentUser?.Username,   
                             };
                             _unitOfWork.Applicant_Status.Add(applicant);
                         }
@@ -631,17 +637,20 @@ namespace Queue_Interview.Controllers
                         {
                             ApplicantId = id,
                             Stage_1 = "Failed",
+                            Stage1_Table = currentUser?.Username
                         };
                         _unitOfWork.Applicant_Status.Add(applicant);
                     }
                     else if (stageId == 2)
                     {
                         applicantStatus.Stage_2 = "Failed";
+                        applicantStatus.Stage2_Table = currentUser?.Username;
                         _unitOfWork.Applicant_Status.Update(applicantStatus);
                     }
                     else if (stageId == 3)
                     {
                         applicantStatus.Stage_3 = "Failed";
+                        applicantStatus.Stage3_Table = currentUser?.Username;
                         _unitOfWork.Applicant_Status.Update(applicantStatus);
                     }
 

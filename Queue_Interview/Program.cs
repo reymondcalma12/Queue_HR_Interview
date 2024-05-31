@@ -57,8 +57,8 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-//pattern: "{controller=Account}/{action=Role}/{id?}");
-pattern: "{controller=Home}/{action=Index}/{id?}");
+pattern: "{controller=Account}/{action=Role}/{id?}");
+//pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.MapHub<QueueHub>("/hubs/queueHub");
 app.MapHub<TableHub>("/hubs/tableHub");
