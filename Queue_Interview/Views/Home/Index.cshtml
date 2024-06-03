@@ -3,11 +3,60 @@
     ViewData["Title"] = "Home Page";
 }
 
-@* <div class="img-fluid position-absolute" style="bottom: 5px; left: 5px;">
-    <img src="/src/Inhouse.jpg" width="300" class="rounded-3"/>
-</div> *@
 
-<div class="m-auto d-flex align-items-center justify-content-center h-100" style="max-width:650px;">
+<div class="row">
+    <div class="col-6 p-0">
+        <img src="/src/Inhouse.jpg" style="width: 100%;height: 100%; object-fit: cover; opacity: .7;" />
+    </div>
+    <div class="col-6">
+        <a asp-controller="Account" asp-action="Role" role="button" class="btn btn-secondary text-white mt-2">Back</a>
+        <div class="px-4">
+            <div class="img-fluid text-center">
+                <img src="/src/prg_logo.png" />
+            </div>
+            <h4 class="text-center mb-4 fw-bold">APPLICATION FORM</h4>
+            <form asp-controller="Home" asp-action="AddApplicant" method="post" id="form">
+                <div class="row">
+                    <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                    <input asp-for="ApplicantId" hidden>
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Name" class="form-label fw-bold"></label>
+                        <input asp-for="Name" class="form-control" placeholder="Enter Name">
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Position" class="form-label fw-bold"></label>
+                        <input asp-for="Position" class="form-control" placeholder="Enter Position">
+                        <span asp-validation-for="Position" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label asp-for="Address" class="form-label fw-bold"></label>
+                        <input asp-for="Address" class="form-control" placeholder="Enter Address">
+                        <span asp-validation-for="Address" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label asp-for="ContactNumber" class="form-label fw-bold"> Contact Number </label>
+                        <input asp-for="ContactNumber" type="number" class="form-control" placeholder="Enter Contact Number">
+                        <span asp-validation-for="ContactNumber" class="text-danger"></span>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <label asp-for="Email" class="form-label fw-bold"></label>
+                        <input asp-for="Email" class="form-control" placeholder="Enter Email">
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="w-100 mt-2">
+                    <button type="submit" class="btn btn-success w-100" id="registerBtn">Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+@* <div class="m-auto d-flex align-items-center justify-content-center h-100" style="max-width:650px;">
     <div class="bg-white border rounded p-5 pt-3">
         <div class="img-fluid text-center">
             <img src="/src/prg_logo.png" />
@@ -48,8 +97,7 @@
             </div>
         </form> 
     </div>
-</div>
-
+</div>  *@
 
 
 @section Scripts {
@@ -59,14 +107,14 @@
 }
 
 <script>
-    var modal = document.getElementById('applicationForm');
-    modal.addEventListener('hidden.bs.modal', function () {
-        var form = document.getElementById('form');
-        var textDanger = document.querySelectorAll('.text-danger');
-        form.reset();
-        textDanger.forEach(function (element) {
-            element.innerText = '';
-        });
-    });
+    // var modal = document.getElementById('applicationForm');
+    // modal.addEventListener('hidden.bs.modal', function () {
+    //     var form = document.getElementById('form');
+    //     var textDanger = document.querySelectorAll('.text-danger');
+    //     form.reset();
+    //     textDanger.forEach(function (element) {
+    //         element.innerText = '';
+    //     });
+    // });
 
 </script>

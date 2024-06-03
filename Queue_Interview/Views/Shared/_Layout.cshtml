@@ -12,41 +12,14 @@
     <style>
         body {
             margin: 0;
-            font-family: 'Roboto', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-            font-size: var(--bs-body-font-size);
-            font-weight: var(--bs-body-font-weight);
-            line-height: var(--bs-body-line-height);
-            color: var(--bs-body-color);
-            text-align: var(--bs-body-text-align);
-            background-color: var(--bs-body-bg);
+            font-family: 'Roboto', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;    
             -webkit-text-size-adjust: 100%;
             -webkit-tap-highlight-color: transparent;
-            height: 100vh;
-            width: 100vw;
         }
-
-            body::after {
-                content: "";
-                background: url(/src/login_bckgd.png);
-                background-repeat: no-repeat;
-                background-size: cover;
-                background-attachment: fixed;
-                opacity: 0.2;
-                top: 0;
-                left: 0;
-                bottom: 0;
-                right: 0;
-                position: absolute;
-                z-index: -1;
-                font-family: Calibri, Verdana, Helvetica, sans-serif;
-            }
     </style>
 
-    <div class="position-absolute p-2" style="width: 100%">
-        <a asp-controller="Account" asp-action="Role" role="button" class="btn btn-secondary text-white">Back</a>
-    </div>
 
-    <div class="container-fluid p-0 h-100">
+    <div class="container-fluid">
         @RenderBody()
     </div>
 

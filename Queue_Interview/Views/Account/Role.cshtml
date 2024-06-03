@@ -4,8 +4,8 @@
     Layout = "_AccountLayout";
 }
 
-<div class="m-auto d-flex align-items-center justify-content-center h-100" style="max-width:600px;">
-    <div class="bg-white border rounded p-2">
+<div class="m-auto d-flex align-items-center justify-content-center h-100" style="max-width:550px;">
+    <div class="bg-white border rounded-3 p-2">
         <div class="img-fluid text-center">
             <img src="/src/prg_logo.png" />
         </div>
@@ -17,7 +17,7 @@
                 <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
 
                 <div class="col-12 mb-3">
-                    <label asp-for="StageId" class="form-label">Floor</label>
+                    <label asp-for="StageId" class="form-label fw-bold">Floor</label>
                     <select asp-for="StageId" class="form-select">
                         <option selected disabled>--select floor--</option>
                     </select>
@@ -25,13 +25,13 @@
                 </div>
 
                 <div class="col-12 mb-3">
-                    <label asp-for="TableId" class="form-label">Table/Room</label>
+                    <label asp-for="TableId" class="form-label fw-bold">Table/Room</label>
                     <select asp-for="TableId" class="form-select">
                     </select>
                     <span asp-validation-for="TableId" class="text-danger"></span>
                 </div>
 
-                <div class="col-12 pt-3">
+                <div class="col-12">
                     <button type="submit" class="btn btn-success w-100" id="">Login</button>
                 </div>
             </div>

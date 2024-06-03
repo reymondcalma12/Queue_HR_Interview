@@ -10,8 +10,38 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
 <body class="h-100" style="background-color: #F1E902;">
-
     <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: var(--bs-body-font-size);
+            font-weight: var(--bs-body-font-weight);
+            line-height: var(--bs-body-line-height);
+            color: var(--bs-body-color);
+            text-align: var(--bs-body-text-align);
+            background-color: var(--bs-body-bg);
+            -webkit-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            height: 100vh;
+            width: 100vw;
+        }
+
+            body::after {
+                content: "";
+                background: url(/src/login_bckgd.png);
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-attachment: fixed;
+                opacity: 0.2;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                position: absolute;
+                z-index: -1;
+                font-family: Calibri, Verdana, Helvetica, sans-serif;
+            }
+
         .blink-red {
             animation: blink 1s infinite;
         }
@@ -52,12 +82,12 @@
         @@keyframes blinks {
             0% {
                 opacity: 1;
-                color: #DD3333; 
+                color: #DD3333;
             }
 
             50% {
                 opacity: .3;
-                color: #DD3333; 
+                color: #DD3333;
             }
 
             100% {
@@ -70,18 +100,19 @@
             animation: blinks 1s ease-in-out infinite;
         }
 
-
-
     </style>
+
+    <div class="position-absolute img-fluid" style="top: 30px; left: 30px;">
+        <img src="~/src/prg_logo.png" class="logo" style="width: 130px;height: 130px;object-fit: cover;" alt="Queue_Interview" />
+    </div>
+
 
     <div class="container-fluid p-0" style="height:100%;">
         @RenderBody()
     </div>
 
 
-    <div class="position-absolute img-fluid" style="bottom: 50px; right: 10px;">
-        <img src="~/src/logo-prince.png" class="logo" style="width: 130px;height: 130px;object-fit: cover;" alt="Queue_Interview" />
-    </div>
+
     <footer class="footer text-muted flex-shrink-1" style="background-color: #DD3333; line-height: 40px;">
         <div class="container-fluid d-flex align-items-center text-center text-white w-100 p-0">
             <marquee direction="left" class="w-100">
