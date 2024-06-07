@@ -15,25 +15,27 @@
 
 </head>
 <body>
-@*     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-green border-bottom box-shadow p-0">
-            <div class="container-fluid">
-                <a class="navbar-brand text-light" asp-area="" asp-controller="HR" asp-action="Serving">
-                    <img src="~/src/logo-prince.png" style="width: 60px;height: 40px;object-fit: contain;" alt="Queue_Interview" />
-                </a>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
 
-                <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon text-white"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                    </ul>
-                    <partial name="_LoginPartial" />
-                </div>
-            </div>
-        </nav>
-    </header> *@
+            body::after {
+                content: "";
+                background: url(/src/login_bckgd.png);
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-attachment: fixed;
+                opacity: 0.2;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                position: absolute;
+                z-index: -1;
+            }
+    </style>
 
     <div class="container-fluid p-0" style="height:100%;">
         @RenderBody()

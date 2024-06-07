@@ -75,65 +75,68 @@ function CallQueueNumber() {
 //Function to pass the queue number
 function FailedqueueNumber() {
     var button = $(this);
+    if (confirm("Are you sure you want to pass the queue number?")) {
+        $.ajax({
+            type: 'GET',
+            url: "/HR/FailedQueue",
+            dataType: "json",
+            success: function (result) {
+                console.log(result);
+                if (result != null || result != undefined) {
 
-    $.ajax({
-        type: 'GET',
-        url: "/HR/FailedQueue",
-        dataType: "json",
-        success: function (result) {
-            console.log(result);
-            if (result != null || result != undefined) {
+                    //Display the Waiting Applicants
+                    GetAllWaitingApplicants();
+                    //Display the Queue Number
+                    DisplayCurrentServe();
 
-                //Display the Waiting Applicants
-                GetAllWaitingApplicants();
-                //Display the Queue Number
-                DisplayCurrentServe();
+                    button.prop('disabled', true);
+                    setTimeout(function () {
+                        button.prop('disabled', false);
+                    }, 1000);
 
-                button.prop('disabled', true);
-                setTimeout(function () {
-                    button.prop('disabled', false);
-                }, 1000);
-
-            } else {
-                alert("There is no Queue number");
+                } else {
+                    alert("There is no Queue number");
+                }
+            },
+            error: function (req, status, error) {
+                console.log(status);
             }
-        },
-        error: function (req, status, error) {
-            console.log(status);
-        }
-    });
+        });
+    }
 }
 
 //Function to pass the queue number
+//Function to pass the queue number
 function PassedqueueNumber() {
     var button = $(this);
+    if (confirm("Are you sure you want to pass the queue number?")) {
+        $.ajax({
+            type: 'GET',
+            url: "/HR/PassedQueue",
+            dataType: "json",
+            success: function (result) {
+                console.log(result);
+                if (result != null || result != undefined) {
 
-    $.ajax({
-        type: 'GET',
-        url: "/HR/PassedQueue",
-        dataType: "json",
-        success: function (result) {
-            console.log(result);
-            if (result != null || result != undefined) {
+                    //Display the Waiting Applicants
+                    GetAllWaitingApplicants();
+                    //Display the Queue Number
+                    DisplayCurrentServe();
 
-                //Display the Waiting Applicants
-                GetAllWaitingApplicants();
-                //Display the Queue Number
-                DisplayCurrentServe();
+                    button.prop('disabled', true);
+                    setTimeout(function () {
+                        button.prop('disabled', false);
+                    }, 1000);
 
-                button.prop('disabled', true);
-                setTimeout(function () {
-                    button.prop('disabled', false);
-                }, 1000);
-
-            } else {
-                alert("There is no Queue number");
+                } else {
+                    alert("There is no Queue number");
+                }
+            },
+            error: function (req, status, error) {
+                console.log(status);
             }
-        },
-        error: function (req, status, error) {
-            console.log(status);
-        }
-    });
+        });
+    }
 }
 
 // Function to get the next queue number
@@ -199,7 +202,7 @@ function GetAllWaitingApplicants() {
         error: function () {
             console.log('Unable to Fetch the Data.');
         }
-
+        
     });
 }
 

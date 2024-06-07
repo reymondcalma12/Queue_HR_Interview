@@ -214,7 +214,7 @@ namespace Queue_Interview.Controllers
                             StageId = 2
                         };
                         _unitOfWork.Queue_Stage_2.Add(stage2);
-                        await _hubContext.Clients.All.SendAsync("UpdateApplicantQueue", stage2);
+                        //await _hubContext.Clients.All.SendAsync("UpdateApplicantQueue", stage2);
                     }
                     else if (servingData.StageId == 2)
                     {
@@ -225,7 +225,7 @@ namespace Queue_Interview.Controllers
                             StageId = 3
                         };
                         _unitOfWork.Queue_Stage_3.Add(stage3);
-                        await _hubContext.Clients.All.SendAsync("UpdateApplicantQueue", stage3);
+                        //await _hubContext.Clients.All.SendAsync("UpdateApplicantQueue", stage3);
                     }
 
                     // Table Serve Functional
@@ -247,14 +247,17 @@ namespace Queue_Interview.Controllers
                         };
                         _unitOfWork.Table_ServeRepo.Add(tableServe);
                     }
+                
+                    _unitOfWork.Serving.Remove(servingData);
+                    _unitOfWork.Save();
 
                     // Serve for Display Monitor
                     await _hubContext.Clients.All.SendAsync("RemoveQueueMonitor", tableId);
+                    //Update Waiting applicants
+                    await _hubContext.Clients.All.SendAsync("UpdateApplicantQueue");
 
                     // Update the Display of that User
                     await _hubContext.Clients.All.SendAsync("DisplayQueue");
-                    _unitOfWork.Serving.Remove(servingData);
-                    _unitOfWork.Save();
 
                     return Json(Ok());
                 }
